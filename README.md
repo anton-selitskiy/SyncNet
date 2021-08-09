@@ -17,7 +17,7 @@ In addition, `ffmpeg` is required.
 
 Full pipeline:
 ```
-main.py
+main.py instead of
 ```
 
 Outputs:
