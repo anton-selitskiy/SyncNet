@@ -1,6 +1,6 @@
 # SyncNet
 
-This repository contains the demo for the audio-to-video synchronisation network (SyncNet). 
+This repository contains the copy from https://github.com/joonson/syncnet_python with additional automatic pipeline (main.py) 
 
 Please cite the paper below if you make use of the software. 
 
