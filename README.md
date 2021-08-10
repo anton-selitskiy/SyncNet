@@ -17,7 +17,7 @@ In addition, `ffmpeg` is required.
 
 Full pipeline:
 ```
-main.py instead of
+main.py - combination of run_pipeline.py and run_syncnet.py (I didn't use run_visualise)
 ```
 
 Outputs:
