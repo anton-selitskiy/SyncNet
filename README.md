@@ -1,6 +1,6 @@
 # SyncNet
 
-This repository contains the demo for the audio-to-video synchronisation network (SyncNet). 
+This repository contains the copy from https://github.com/joonson/syncnet_python with additional automatic pipeline (main.py) 
 
 Please cite the paper below if you make use of the software. 
 
@@ -17,7 +17,7 @@ In addition, `ffmpeg` is required.
 
 Full pipeline:
 ```
-main.py instead of
+main.py - combination of run_pipeline.py and run_syncnet.py (I didn't use run_visualise)
 ```
 
 Outputs:
