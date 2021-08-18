@@ -47,16 +47,16 @@ class SyncNetInstance(torch.nn.Module):
         # Convert files
         # ========== ==========
 
-        if os.path.exists(os.path.join(opt.tmp_dir,opt.reference)):
-          rmtree(os.path.join(opt.tmp_dir,opt.reference))
+        #if os.path.exists(os.path.join(opt.tmp_dir,opt.reference)):
+        #  rmtree(os.path.join(opt.tmp_dir,opt.reference))
 
-        os.makedirs(os.path.join(opt.tmp_dir,opt.reference))
+        #os.makedirs(os.path.join(opt.tmp_dir,opt.reference))
 
-        command = ("ffmpeg -y -i %s -threads 1 -f image2 %s" % (videofile,os.path.join(opt.tmp_dir,opt.reference,'%06d.jpg'))) 
-        output = subprocess.call(command, shell=True, stdout=None)
+        #command = ("ffmpeg -y -i %s -threads 1 -f image2 %s" % (videofile,os.path.join(opt.tmp_dir,opt.reference,'%06d.jpg'))) 
+        #output = subprocess.call(command, shell=True, stdout=None)
 
-        command = ("ffmpeg -y -i %s -async 1 -ac 1 -vn -acodec pcm_s16le -ar 16000 %s" % (videofile,os.path.join(opt.tmp_dir,opt.reference,'audio.wav'))) 
-        output = subprocess.call(command, shell=True, stdout=None)
+        #command = ("ffmpeg -y -i %s -async 1 -ac 1 -vn -acodec pcm_s16le -ar 16000 %s" % (videofile,os.path.join(opt.tmp_dir,opt.reference,'audio.wav'))) 
+        #output = subprocess.call(command, shell=True, stdout=None)
         
         # ========== ==========
         # Load video 
@@ -64,7 +64,7 @@ class SyncNetInstance(torch.nn.Module):
 
         images = []
         
-        flist = glob.glob(os.path.join(opt.tmp_dir,opt.reference,'*.jpg'))
+        flist = glob.glob(os.path.join(opt.tmp_dir,'*.jpg'))
         flist.sort()
 
         for fname in flist:
@@ -80,7 +80,7 @@ class SyncNetInstance(torch.nn.Module):
         # Load audio
         # ========== ==========
 
-        sample_rate, audio = wavfile.read(os.path.join(opt.tmp_dir,opt.reference,'audio.wav'))
+        sample_rate, audio = wavfile.read(os.path.join(opt.tmp_dir,'audio.wav'))
         mfcc = zip(*python_speech_features.mfcc(audio,sample_rate))
         mfcc = numpy.stack([numpy.array(i) for i in mfcc])
 
@@ -206,3 +206,4 @@ class SyncNetInstance(torch.nn.Module):
         for name, param in loaded_state.items():
 
             self_state[name].copy_(param);
+
